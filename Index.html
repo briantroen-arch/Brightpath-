@@ -3,5 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BrightPath — The Homeschool Planner Built for Real Life</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>BrightPath — Homeschool Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:#FAF7F0;color:#1C2B22}
+nav{background:#2D4A3E;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Lora',serif;color:white;font-size:20px;font-weight:700}
+.nav-btn{background:#C8963E;color:white;border:none;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer}
+.hero{background:linear-gradient(135deg,#2D4A3E 0%,#3D6355 100%);padding:80px 24px;text-align:center}
+.hero h1{font-family:'Lora',serif;font-size:36px;font-weight:700;color:white;line-height:1.2;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:#E8C07A}
+.hero p{font-size:16px;color:#C2D9CB;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
+.form{display:flex;flex-direction:column;gap:10px;max-width:400px;margin:0 auto}
+.form input{padding:14px 20px;border:none;border-radius:50px;font-size:15px;font-family:'Nunito',sans-serif;outline:none}
+.form button{background:#C8963E;color:white;border:none;padding:14px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer}
+.badge{display:inline-block;background:rgba(255,255,255,0.1);color:#C2D9CB;padding:6px 16px;border-radius:50px;font-size:12px;margin-bottom:24px}
+.stats{display:flex;justify-content:center;gap:32px;padding:40px 24px;background:#F3EDE0;border-bottom:1px solid #DDD6C8}
+.stat{text-align:center}
+.stat-num{font-family:'Lora',serif;font-size:36px;font-weight:700;color:#2D4A3E}
+.stat-label{font-size:13px;color:#5A7A65;margin-top:4px}
+.features{padding:60px 24px;max-width:900px;margin:0 auto}
+.features h2{font-family:'Lora',serif;font-size:28px;font-weight:700;text-align:center;margin-bottom:8px}
+.features h2 em{font-style:italic;color:#2D4A3E}
+.features-sub{text-align:center;color:#5A7A65;margin-bottom:40px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:white;border-radius:16px;padding:24px;border:1px solid #DDD6C8}
+.card-icon{font-size:32px;margin-bottom:12px}
+.card h3{font-family:'Lora',serif;font-size:17px;font-weight:600;margin-bottom:8px;color:#1C2B22}
+.card p{font-size:13px;color:#5A7A65;line-height:1.6}
+.testimonials{background:#F3EDE0;padding:60px 24px;border-top:1px solid #DDD6C8}
+.testimonials h2{font-family:'Lora',serif;font-size:28px;font-weight:700;text-align:center;margin-bottom:32px}
+.testimonials h2 em{font-style:italic;color:#2D4A3E}
+.t-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:900px;margin:0 auto}
+.t-card{background:white;border-radius:16px;padding:24px;border:1px solid #DDD6C8}
+.stars{color:#C8963E;font-size:14px;margin-bottom:12px}
+.quote{font-family:'Lora',serif;font-style:italic;font-size:14px;color:#1C2B22;line-height:1.7;margin-bottom:16px}
+.author{font-size:12px;font-weight:700;color:#2D4A3E}
+.author-sub{font-size:11px;color:#8AAF96}
+.pricing{padding:60px 24px;text-align:center}
+.pricing h2{font-family:'Lora',serif;font-size:28px;font-weight:700;margin-bottom:8px}
+.pricing h2 em{font-style:italic;color:#2D4A3E}
+.pricing-sub{color:#5A7A65;margin-bottom:40px;font-size:15px}
+.price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:600px;margin:0 auto}
+.price-card{background:white;border-radius:20px;padding:32px;border:1.5px solid #DDD6C8}
+.price-card.featured{background:#2D4A3E;border-color:#2D4A3E}
+.plan{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8AAF96;margin-bottom:8px}
+.price-card.featured .plan{color:#C2D9CB}
+.price{font-family:'Lora',serif;font-size:48px;font-weight:700;color:#1C2B22;line-height:1}
+.price-card.featured .price{color:white}
+.period{font-size:13px;color:#5A7A65;margin-bottom:20px}
+.price-card.featured .period{color:#C2D9CB}
+.price-features{list-style:none;text-align:left;margin-bottom:24px}
+.price-features li{font-size:13px;color:#5A7A65;padding:5px 0;border-bottom:1px solid #F3EDE0}
+.price-card.featured .price-features li{color:#C2D9CB;border-color:rgba(255,255,255,0.1)}
+.price-btn{width:100%;padding:12px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:'Nunito',sans-serif}
+.price-btn-outline{background:transparent;border:1.5px solid #DDD6C8;color:#2D4A3E}
+.price-btn-solid{background:#C8963E;color:white}
+.cta{background:#2D4A3E;padding:60px 24px;text-align:center}
+.cta h2{font-family:'Lora',serif;font-size:28px;font-weight:700;color:white;margin-bottom:8px}
+.cta h2 em{font-style:italic;color:#E8C07A}
+.cta p{color:#C2D9CB;margin-bottom:32px}
+.success{display:none;background:#C8963E;color:white;padding:14px 24px;border-radius:50px;font-size:14px;font-weight:600;margin-top:12px}
+footer{background:#1C2B22;padding:24px;text-align:center;color:rgba(255,255,255,0.4);font-size:12px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">🌱 BrightPath</div>
+  <button class="nav-btn" onclick="document.getElementById('signup').scrollIntoView()">Get Started Free</button>
+</nav>
+
+<div class="hero">
+  <div class="badge">✨ Now in Early Access</div>
+  <h1>The homeschool planner that <em>actually fits your life</em></h1>
+  <p>Plan lessons, track grades, manage multiple children — all in one beautiful, simple place. No spreadsheets. No chaos.</p>
+  <div class="form" id="hero-form">
+    <input type="email" id="hero-email" placeholder="Enter your email address" />
+    <button onclick="signup('hero')">Join the Waitlist →</button>
+  </div>
+  <div class="success" id="hero-success">🎉 You're on the list! We'll be in touch soon.</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">240+</div><div class="stat-label">Families Waitlisted</div></div>
+  <div class="stat"><div class="stat-num">$9</div><div class="stat-label">Per Month</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">Core Features</div></div>
+</div>
+
+<div class="features">
+  <h2>Built for how you <em>actually</em> homeschool</h2>
+  <p class="features-sub">Not for a school district. For a real family on a real Tuesday morning.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📅</div>
+      <h3>Weekly Planner</h3>
+      <p>Plan every child's week visually. Assign lessons, set times, reschedule easily when life happens.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h3>Progress & Grades</h3>
+      <p>Track grades, unit completion, and year progress. Generate PDF reports for co-ops in one click.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👨‍👩‍👧‍👦</div>
+      <h3>Multiple Children</h3>
+      <p>Manage each child's curriculum separately while seeing your whole family's day on one screen.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🗂️</div>
+      <h3>Resource Library</h3>
+      <p>Save books, videos, worksheets and websites in one organized place. Find anything instantly.</p>
+    </div>
+  </div>
+</div>
+
+<div class="testimonials">
+  <h2>Homeschool parents <em>love it</em></h2>
+  <div class="t-cards">
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"BrightPath is the first planner that actually stuck. I can see all three kids at once and finally feel like I know what's happening."</p>
+      <div class="author">Sarah M.</div>
+      <div class="author-sub">3 kids · Texas</div>
+    </div>
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"Our co-op requires quarterly reports and I used to dread making them. Now it takes me 2 minutes. Life changing."</p>
+      <div class="author">Jennifer K.</div>
+      <div class="author-sub">4 kids · Ohio</div>
+    </div>
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"The design is so clean and simple — it doesn't feel overwhelming like every other homeschool tool I've tried."</p>
+      <div class="author">Rachel L.</div>
+      <div class="author-sub">2 kids · Tennessee</div>
+    </div>
+  </div>
+</div>
+
+<div class="pricing">
+  <h2>Less than a <em>cup of coffee a week</em></h2>
+  <p class="pricing-sub">One flat price for your whole family. No per-child fees.</p>
+  <div class="price-cards">
+    <div class="price-card">
+      <div class="plan">Free</div>
+      <div class="price">$0</div>
+      <div class="period">forever</div>
+      <ul class="price-features">
+        <li>✓ Up to 2 children</li>
+        <li>✓ Up to 4 subjects</li>
+        <li>✓ Weekly planner</li>
+        <li>✗ PDF reports</li>
+        <li>✗ Resource library</li>
+      </ul>
+      <button class="price-btn price-btn-outline" onclick="signup('free')">Start Free</button>
+    </div>
+    <div class="price-card featured">
+      <div class="plan">Pro Family</div>
+      <div class="price">$9</div>
+      <div class="period">/month</div>
+      <ul class="price-features">
+        <li>✓ Unlimited children</li>
+        <li>✓ Unlimited subjects</li>
+        <li>✓ Full planner</li>
+        <li>✓ PDF reports</li>
+        <li>✓ Resource library</li>
+      </ul>
+      <button class="price-btn price-btn-solid" onclick="signup('pro')">Start Free Trial</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta" id="signup">
+  <h2>Ready to simplify your <em>homeschool?</em></h2>
+  <p>Join hundreds of families on the waitlist. Free to start.</p>
+  <div class="form" id="cta-form">
+    <input type="email" id="cta-email" placeholder="Your email address" />
+    <button onclick="signup('cta')">Get Early Access →</button>
+  </div>
+  <div class="success" id="cta-success">🎉 You're on the list! Talk soon.</div>
+</div>
+
+<footer>© 2026 BrightPath · Made with ❤️ for homeschool families</footer>
+
+<script>
+function signup(s){
+  var id=s==='cta'?'cta-email':'hero-email';
+  var e=document.getElementById(id).value;
+  if(s==='free'||s==='pro'){done('hero-success','hero-form');return;}
+  if(!e||!e.includes('@')){alert('Please enter a valid email');return;}
+  done(s==='cta'?'cta-success':'hero-success',s==='cta'?'cta-form':'hero-form');
+}
+function done(s,f){
+  document.getElementById(f).style.display='none';
+  document.getElementById(s).style.display='block';
+}
+</script>
+</body>
+</html>
